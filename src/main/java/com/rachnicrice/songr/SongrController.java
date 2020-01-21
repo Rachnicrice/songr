@@ -12,7 +12,13 @@ public class SongrController {
 
     @GetMapping ("/")
     public String home (Model m) {
-        return "home";
+        return "index";
+    }
+
+    @GetMapping("/albums")
+    public String albums (Model m) {
+
+        return "albums";
     }
 
     @GetMapping("/hello")
