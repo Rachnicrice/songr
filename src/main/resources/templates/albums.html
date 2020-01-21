@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>Songr</title>
+</head>
+
+<body>
+
+  <h1>Albums</h1>
+
+  <article th:each="album : ${albums}">
+    <h3 th:text="${album.title}"></h3>
+    <img th:src="${album.img}" th:alt="${album.title}">
+    <h4 th:text="${album.artist}"></h4>
+    <p th:text="'Contains ' + ${album.songCount} + ' songs'"></p>
+    <p th:text="${album.length} + ' seconds long'"></p>
+  </article>
+
+</body>
+
+<footer>
+  
+</footer>
+</html>
