@@ -3,6 +3,8 @@ package com.rachnicrice.songr;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class SongrController {
@@ -18,8 +20,9 @@ public class SongrController {
         return "hello";
     }
 
-    @GetMapping("/capitalize")
-    public String capitalize (Model m) {
+    @GetMapping("/capitalize/{input}")
+    public  String capitalize (@PathVariable String input, Model m) {
+        m.addAttribute("input", input.toUpperCase());
         return "all-caps";
     }
 }
