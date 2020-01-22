@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+  <head th:include="fragments/head :: head">
+  </head>
+
+<body>
+  <header th:include="fragments/header :: header"></header>
+  <h2>Add An Album</h2>
+
+  <form method="POST" action="/albums">
+    <label>Album Title
+      <input type="text" name="title">
+    </label>
+
+    <label>Image Link
+      <input type="text" name="img">
+    </label>
+
+    <label>Artist/Band
+      <input type="text" name="artist">
+    </label>
+
+    <label>Number of Songs
+      <input type="number" name="songCount">
+    </label>
+
+    <label>Album Length in Seconds
+      <input type="number" name="length">
+    </label>
+
+    <input type="submit">
+  </form>
+
+</body>
+
+<footer>
+
+</footer>
+</html>
