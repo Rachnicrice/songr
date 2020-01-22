@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <title>Songr</title>
-</head>
+  <head th:include="fragments/head :: head">
+  </head>
 
 <body>
-  <h1>Add An Album</h1>
+  <header th:include="fragments/header"></header>
+  <h2>Add An Album</h2>
 
   <form method="POST" action="/albums">
     <label>Album Title
