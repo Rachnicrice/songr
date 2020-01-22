@@ -1,14 +1,20 @@
 package com.rachnicrice.songr;
 
 import com.rachnicrice.songr.model.Album;
+import com.rachnicrice.songr.model.AlbumRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 @Controller
 public class SongrController {
 
+    @Autowired
+    AlbumRepository repo;
 
     @GetMapping ("/")
     public String home (Model m) {
@@ -17,15 +23,8 @@ public class SongrController {
 
     @GetMapping("/albums")
     public String albums (Model m) {
-        Album[] albums = new Album[] {
-            new Album("Fear Inoculum", "Tool", 10, 5198, "https://upload.wikimedia.org/wikipedia/en/d/d6/Tool_-_Fear_Inoculum.png"),
-            new Album ("Stromata", "Charlotte Martin", 12, 3284, "I'll save images to assets eventually"),
-            new Album ("Rumors", "Fleetwood Mac", 11, 2383, "This is a great album")
-        };
-
-
-
-        m.addAttribute("albums", albums);
+        List<Album> albumEntry = repo.findAll();
+        m.addAttribute("albums", albumEntry);
         return "albums";
     }
 
