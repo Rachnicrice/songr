@@ -1,5 +1,6 @@
 package com.rachnicrice.songr;
 
+import com.rachnicrice.songr.model.Album;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
