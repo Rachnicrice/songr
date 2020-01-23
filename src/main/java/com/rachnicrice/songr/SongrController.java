@@ -64,6 +64,12 @@ public class SongrController {
         return "add";
     }
 
+    @GetMapping ("/albums/{id}/add/song")
+    public String addSong (@PathVariable Long id, Model m) {
+        m.addAttribute("album", repo.getOne(id));
+        return "add-song";
+    }
+
 
     //test routes
     @GetMapping("/hello")

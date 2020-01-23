@@ -24,11 +24,11 @@
 </div>
 
 <div class="songs">
-    <h1>Songs</h1>
-    <!-- <article th:each="song : ${songs}">
+    <h3>Songs</h3>
+    <article th:each="song : ${album.songs}">
         <h4 th:text="${song.title}">Song Title</h4>
-    </article> -->
-    <form method="GET" action="/add/song">
+    </article>
+    <form method="GET" th:action="'/albums/' + ${album.id} + '/add/song'">
         <input type="submit" value="Add Song">
     </form>
 </div>
