@@ -11,8 +11,8 @@
 <div class="songs">
     <article th:each="song : ${songs}">
         <h3 th:text="${song.title}"></h3>
-        <h4 th:text="${song.length}"></h4>
-        <p th:text="${song.album.title}"></p>
+        <h4 th:text="${song.length} + ' seconds long'"></h4>
+        <p th:text="'Album: ' + ${song.album.title}"></p>
         <p th:text="'Track Number: ' + ${song.trackNumber}"></p>
     </article>
 </div>
