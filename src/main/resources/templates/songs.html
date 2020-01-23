@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:include="fragments/head :: head">
+</head>
+
+<body>
+<header th:include="fragments/header :: header"></header>
+<h2>Songs</h2>
+
+<div class="songs">
+    <article th:each="song : ${songs}">
+        <h3 th:text="${song.title}"></h3>
+        <h4 th:text="${song.length}"></h4>
+        <p th:text="${song.album.title}"></p>
+        <p th:text="'Track Number: ' + ${song.trackNumber}"></p>
+    </article>
+</div>
+
+</body>
+
+<footer>
+
+</footer>
+</html>
