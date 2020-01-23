@@ -52,16 +52,16 @@ public class SongrController {
         return "songs";
     }
 
+    @GetMapping ("/add/album")
+    public String addAlbum () {
+        return "add";
+    }
+
     @PostMapping("/albums")
     public RedirectView addedAlbum (String title, String artist, int songCount, int length, String img) {
         Album newAlbum = new Album(title, artist, songCount, length, img);
         repo.save(newAlbum);
         return new RedirectView("/albums");
-    }
-
-    @GetMapping ("/add/album")
-    public String addAlbum () {
-        return "add";
     }
 
     @GetMapping ("/albums/{id}/add/song")
@@ -70,6 +70,13 @@ public class SongrController {
         return "add-song";
     }
 
+    @PostMapping("/albums/{id}")
+    public  RedirectView addedSong (@PathVariable Long id, String title, int length, int trackNumber) {
+        Song newSong = new Song(title, length, trackNumber);
+        newSong.setAlbum(repo.getOne(id));
+        songRepo.save(newSong);
+        return new RedirectView("/albums/" + id);
+    }
 
     //test routes
     @GetMapping("/hello")
