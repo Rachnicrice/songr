@@ -1,10 +1,8 @@
 package com.rachnicrice.songr.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
+@Entity
 public class Song {
     //instance variables
     @Id
@@ -25,6 +23,7 @@ public class Song {
         this.length = length;
         this.trackNumber = trackNumber;
     }
+
     public Song () {}
 
     //instance methods

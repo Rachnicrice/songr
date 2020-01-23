@@ -2,6 +2,7 @@ package com.rachnicrice.songr.model;
 
 
 import javax.persistence.*;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -29,6 +30,7 @@ public class Album {
         this.songCount = songCount;
         this.length = length;
         this.img = img;
+        this.songs = new LinkedList<>();
     }
     //default constructor
 

@@ -2,6 +2,8 @@ package com.rachnicrice.songr;
 
 import com.rachnicrice.songr.model.Album;
 import com.rachnicrice.songr.model.AlbumRepository;
+import com.rachnicrice.songr.model.Song;
+import com.rachnicrice.songr.model.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,14 +12,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.persistence.OneToMany;
 import java.util.List;
 
 @Controller
 public class SongrController {
 
+    //interfaces
     @Autowired
     AlbumRepository repo;
 
+    @Autowired
+    SongRepository songRepo;
+
+    //routes
     @GetMapping ("/")
     public String home (Model m) {
         return "index";
@@ -28,6 +36,13 @@ public class SongrController {
         List<Album> albumEntry = repo.findAll();
         m.addAttribute("albums", albumEntry);
         return "albums";
+    }
+
+    @GetMapping("/songs")
+    public String songs (Model m) {
+        List<Song> songs = songRepo.findAll();
+        m.addAttribute("songs", songs);
+        return "songs";
     }
 
     @PostMapping("/albums")
@@ -42,6 +57,8 @@ public class SongrController {
         return "add";
     }
 
+
+    //test routes
     @GetMapping("/hello")
     public String sayHello (Model m) {
         return "hello";
@@ -52,4 +69,6 @@ public class SongrController {
         m.addAttribute("input", input.toUpperCase());
         return "all-caps";
     }
+
+
 }
