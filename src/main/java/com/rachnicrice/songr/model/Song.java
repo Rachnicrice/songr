@@ -16,8 +16,7 @@ public class Song {
     @ManyToOne
     Album album;
 
-    //Constructors
-
+//Constructors
     public Song(String title, int length, int trackNumber) {
         this.title = title;
         this.length = length;
@@ -30,6 +29,10 @@ public class Song {
 
     public void setAlbum (Album album) {
         this.album = album;
+    }
+
+    public Album getAlbum() {
+        return album;
     }
 
     public long getId() {
