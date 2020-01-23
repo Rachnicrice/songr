@@ -14,6 +14,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import javax.persistence.OneToMany;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class SongrController {
@@ -36,6 +37,12 @@ public class SongrController {
         List<Album> albumEntry = repo.findAll();
         m.addAttribute("albums", albumEntry);
         return "albums";
+    }
+
+    @GetMapping("/albums/{id}")
+    public String albumDetails (@PathVariable Long id, Model m) {
+        m.addAttribute("album", repo.getOne(id));
+        return "album-details";
     }
 
     @GetMapping("/songs")

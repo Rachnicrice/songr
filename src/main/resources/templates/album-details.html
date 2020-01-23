@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:include="fragments/head :: head">
+</head>
+
+<body>
+<header th:include="fragments/header :: header"></header>
+
+<h2 th:text="${album.title}">Album</h2>
+
+<div class="album">
+    <!-- <article th:each="album : ${albums}">
+        <h3 th:text="${album.title}"></h3>
+        <img th:src="${album.img}" th:alt="${album.title}">
+        <h4 th:text="${album.artist}"></h4>
+        <p th:text="'Contains ' + ${album.songCount} + ' songs'"></p>
+        <p th:text="${album.length} + ' seconds long'"></p>
+
+        <form method="GET" th:action="albums/${album.id}">
+            <input type="submit" value="View Album Details">
+        </form>
+    </article> -->
+</div>
+
+<div class="songs">
+    <h1>Songs</h1>
+    <!-- <article th:each="song : ${songs}">
+        <h4 th:text="${song.title}">Song Title</h4>
+    </article> -->
+    <form method="GET" action="/add/song">
+        <input type="submit" value="Add Song">
+    </form>
+</div>
+
+</body>
+
+<footer>
+
+</footer>
+</html>

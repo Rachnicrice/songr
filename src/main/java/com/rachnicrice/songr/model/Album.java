@@ -56,4 +56,12 @@ public class Album {
     public String getImg() {
         return img;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public List<Song> getSongs() {
+        return songs;
+    }
 }
