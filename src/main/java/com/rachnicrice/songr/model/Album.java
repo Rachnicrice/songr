@@ -1,10 +1,8 @@
 package com.rachnicrice.songr.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -19,6 +17,9 @@ public class Album {
     private int songCount;
     private int length;
     private String img;
+
+    @OneToMany(mappedBy = "album")
+    List<Song> songs;
 
     //constructor functions
 
