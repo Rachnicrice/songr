@@ -8,6 +8,10 @@
   <header th:include="fragments/header :: header"></header>
   <h2>Albums</h2>
 
+  <form method="GET" action="/add/album">
+    <input type="submit" value="Add Album">
+  </form>
+
   <div class="albums">
     <article th:each="album : ${albums}">
       <h3 th:text="${album.title}"></h3>
